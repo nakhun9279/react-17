@@ -1,14 +1,18 @@
-import { combineReducers } from 'redux';
-import counter from './counter';
-import todos from './todos';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import rootReducer from './modules';
 
 
-const rootReducer = combineReducers({
-  counter,
-  todos,
-});
+const store = createStore(rootReducer);
 
 
 
-export default rootReducer;
+ReactDOM.render(<App />, document.getElementById('root'));
 
+
+
+serviceWorker.unregister();
